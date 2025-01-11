@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>Grid Game</h1>
+        <p>Who reaches the 50th block wins the match!</p>
+    </div>
+    <div class="container">
+        <div class="class50 block">50</div>
+        <div class="class49 block">49</div>
+        <div class="class48 block">48</div>
+        <div class="class47 block">47</div>
+        <div class="class46 block">46</div>
+        <div class="class45 block">45</div>
+        <div class="class44 block">44</div>
+        <div class="class43 block">43</div>
+        <div class="class42 block">42</div>
+        <div class="class41 block">41</div>
+        <div class="class40 block">40</div>
+        <div class="class39 block">39</div>
+        <div class="class38 block">38</div>
+        <div class="class37 block">37</div>
+        <div class="class36 block">36</div>
+        <div class="class35 block">35</div>
+        <div class="class34 block">34</div>
+        <div class="class33 block">33</div>
+        <div class="class32 block">32</div>
+        <div class="class31 block">31</div>
+        <div class="class30 block">30</div>
+        <div class="class29 block">29</div>
+        <div class="class28 block">28</div>
+        <div class="class27 block">27</div>
+        <div class="class26 block">26</div>
+        <div class="class25 block">25</div>
+        <div class="class24 block">24</div>
+        <div class="class23 block">23</div>
+        <div class="class22 block">22</div>
+        <div class="class21 block">21</div>
+        <div class="class20 block">20</div>
+        <div class="class19 block">19</div>
+        <div class="class18 block">18</div>
+        <div class="class17 block">17</div>
+        <div class="class16 block">16</div>
+        <div class="class15 block">15</div>
+        <div class="class14 block">14</div>
+        <div class="class13 block">13</div>
+        <div class="class12 block">12</div>
+        <div class="class11 block">11</div>
+        <div class="class10 block">10</div>
+        <div class="class9 block">9</div>
+        <div class="class8 block">8</div>
+        <div class="class7 block">7</div>
+        <div class="class6 block">6</div>
+        <div class="class5 block">5</div>
+        <div class="class4 block">4</div>
+        <div class="class3 block">3</div>
+        <div class="class2 block">2</div>
+        <div class="class1 block">1</div>
+    </div>
+    <div class="players">
+        <div class="player1">
+            <button class="btn1">Player 1</button>
+        </div>
+        <div class="score">score</div>
+        <div class="player2">
+            <button class="btn2">Player 2</button>
+        </div>
+    </div>
+
+<script>
+    var player1 = 1;
+    var player2 = 1;
+
+    document.querySelector(".btn1").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.querySelector(`.class${player1}`).textContent = player1;
+        temp=Math.floor(Math.random() * 6) + 1;
+        player1 += temp;
+        player1 = Math.min(player1, 50);
+        document.querySelector(".score").textContent = temp;
+        document.querySelector(`.class${player1}`).textContent = "Player 1";
+
+        if (player1 === 50) {
+            document.querySelector(".score").textContent = "Player 1 wins the match";
+        }
+    });
+
+    document.querySelector(".btn2").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.querySelector(`.class${player2}`).textContent = player2;
+        temp = Math.floor(Math.random() * 6) + 1;
+        player2 += temp;
+        player2 = Math.min(player2, 50); 
+        document.querySelector(".score").textContent = temp;
+        document.querySelector(`.class${player2}`).textContent = "Player 2";
+
+        if (player2 === 50) {
+            document.querySelector(".score").textContent = "Player 2 wins the match";
+        }
+    });
+</script>
+</body>
+</html>
